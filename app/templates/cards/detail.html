@@ -1,0 +1,10 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Card {{ card.id }}</h1>
+<p>Status: {{ card.processing_status }}</p>
+<p>Human verified: {{ card.human_verified }}</p>
+<p>OCR text:</p>
+<pre>{{ card.ocr_raw }}</pre>
+<p>Raw XML:</p>
+<pre>{{ card.xml_raw }}</pre>
+{% endblock %}

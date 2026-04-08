@@ -1,0 +1,12 @@
+[
+  {
+    "external_id": "sample-1",
+    "full_name": "Ada Lovelace",
+    "company": "Analytical Engines Ltd",
+    "position": "Researcher",
+    "image_path": "fixtures/legacy_sample/sample-card-1.txt",
+    "xml_raw": "<card><name>Ada Lovelace</name><company>Analytical Engines Ltd</company></card>",
+    "email": "ada@example.com",
+    "phone": "+1 555 0101"
+  }
+]

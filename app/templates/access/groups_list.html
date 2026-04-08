@@ -1,0 +1,10 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Access groups</h1>
+<a href="/admin-ui/groups/create/">Create group</a>
+<ul>
+  {% for group in groups %}
+    <li>{{ group.name }} ({{ group.slug }})</li>
+  {% endfor %}
+</ul>
+{% endblock %}

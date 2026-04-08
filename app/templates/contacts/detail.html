@@ -1,0 +1,15 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>{{ contact.full_name }}</h1>
+<p>Company: {{ contact.company }}</p>
+<p>Position: {{ contact.position }}</p>
+<p>Notes: {{ contact.notes }}</p>
+<h2>Cards</h2>
+<ul>
+  {% for card in contact.business_cards.all %}
+    <li><a href="/cards/{{ card.id }}/">{{ card.id }}</a></li>
+  {% empty %}
+    <li>No cards linked</li>
+  {% endfor %}
+</ul>
+{% endblock %}
