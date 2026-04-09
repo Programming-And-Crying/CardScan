@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Contacts</h1>
-<form><input name="q" value="{{ q }}" placeholder="Search"/><button>Search</button></form>
-<a href="/contacts/new/">New contact</a>
-<ul>{% for c in contacts %}<li><a href="/contacts/{{ c.id }}/">{{ c.full_name }}</a> - {{ c.company }}</li>{% empty %}<li>No contacts</li>{% endfor %}</ul>
-{% endblock %}

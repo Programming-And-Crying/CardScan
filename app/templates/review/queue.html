@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Review Queue</h1>
-<ul>{% for card in cards %}<li><a href="/cards/{{ card.id }}/">{{ card.id }}</a> | {{ card.processing_status }} | verified={{ card.human_verified }}</li>{% empty %}<li>No cards in queue</li>{% endfor %}</ul>
-{% endblock %}

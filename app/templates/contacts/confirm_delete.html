@@ -1,6 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Delete contact</h1>
-<p>Are you sure you want to delete {{ contact.full_name }}?</p>
-<form method="post">{% csrf_token %}<button type="submit">Confirm delete</button></form>
-{% endblock %}

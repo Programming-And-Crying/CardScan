@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>History {{ entity }}</h1>
-<ul>{% for i in items %}<li>{{ i.created_at }} {{ i.action_type }} {{ i.field_name }}</li>{% empty %}<li>No history</li>{% endfor %}</ul>
-{% endblock %}
