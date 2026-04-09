@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Imports</h1>
+<form method="post" action="/admin-ui/imports/run-sample/">{% csrf_token %}<button>Run sample import</button></form>
+<ul>{% for j in jobs %}<li>{{ j.created_at }} {{ j.adapter_name }} {{ j.status }} {{ j.summary }}</li>{% endfor %}</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Card {{ card.id }}</h1>
+{% if card.original_file %}<img src="{{ card.original_file.url }}" style="max-width:400px"/>{% endif %}
+<p>Status: {{ card.processing_status }}</p>
+<p>Human Verified: {{ card.human_verified }}</p>
+<p>OCR:</p><pre>{{ card.ocr_raw }}</pre>
+<p>XML:</p><pre>{{ card.xml_raw }}</pre>
+<p>Parsed:</p><pre>{{ card.parsed_text }}</pre>
+<a href="/cards/{{ card.id }}/edit/">Edit card</a> {% if user.role == "admin" %}<a href="/cards/{{ card.id }}/delete/">Delete card</a>{% endif %}
+<h3>Comments</h3><ul>{% for com in comments %}<li>{{ com.text }} {% if user.role != "readonly" %}<a href="/comments/{{ com.id }}/edit/?next={{ request.path }}">edit</a>{% endif %}</li>{% endfor %}</ul>
+<form method="post" action="/comments/card/{{ card.id }}/add/">{% csrf_token %}{{ form.as_p }}<button>Add comment</button></form>
+{% endblock %}
