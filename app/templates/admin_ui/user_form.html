@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% if target_user %}Edit user {{ target_user.username }}{% else %}Create user{% endif %}</h1>
+<p>New users get default password: <code>password123</code></p>
+<form method="post">{% csrf_token %}{{ form.as_p }}<button>Save</button></form>
+{% endblock %}

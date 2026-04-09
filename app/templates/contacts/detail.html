@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ contact.full_name }}</h1>
+<p>{{ contact.company }} | {{ contact.position }}</p>
+<p>{{ contact.notes }}</p>
+<p>Groups: {% for g in contact.access_groups.all %}{{ g.name }} {% endfor %}</p>
+<h2>Cards</h2>
+<ul>{% for card in contact.cards.all %}<li><a href="/cards/{{ card.id }}/">{{ card.id }}</a> - {{ card.processing_status }}</li>{% empty %}<li>No cards</li>{% endfor %}</ul>
+<a href="/contacts/{{ contact.id }}/edit/">Edit</a> {% if user.role == "admin" %}<a href="/contacts/{{ contact.id }}/delete/">Delete</a>{% endif %}
+<h3>Comments</h3>
+<ul>{% for com in comments %}<li>{{ com.text }} {% if user.role != "readonly" %}<a href="/comments/{{ com.id }}/edit/?next={{ request.path }}">edit</a>{% endif %}</li>{% endfor %}</ul>
+<form method="post" action="/comments/contact/{{ contact.id }}/add/">{% csrf_token %}{{ form.as_p }}<button>Add comment</button></form>
+<h3>History</h3><ul>{% for h in history %}<li>{{ h.created_at }}: {{ h.action_type }}</li>{% endfor %}</ul>
+{% endblock %}

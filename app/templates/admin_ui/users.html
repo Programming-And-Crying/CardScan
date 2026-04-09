@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Users</h1>
+<a href="/admin-ui/users/new/">Create user</a>
+<ul>{% for u in users %}<li><a href="/admin-ui/users/{{ u.id }}/">{{ u.username }}</a> ({{ u.role }})</li>{% endfor %}</ul>
+{% endblock %}

@@ -1,0 +1,2 @@
+{% extends "base.html" %}
+{% block content %}<h1>Tasks</h1><ul>{% for t in tasks %}<li>{{ t.task_type }} {{ t.status }} {{ t.error_message }}</li>{% endfor %}</ul>{% endblock %}
